@@ -16,10 +16,4 @@ def table_creation():
         print('smth went wrong in table_creation function')
 
 
-def write_name(id, name, surname, nickname):
-    try:
-        con.execute("INSERT INTO USER (ID,NAME,AGE,ADDRESS,SALARY) \
-              VALUES (, 'Paul', 32, 'California', 20000.00 );")
 
-    except:
-        pass
