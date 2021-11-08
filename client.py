@@ -1,3 +1,5 @@
+"""This module is implementation of client part"""
+
 import websockets
 import asyncio
 from aioconsole import ainput, aprint
@@ -8,6 +10,7 @@ nickname = input('Please write your nickname? ')
 
 
 async def receiver(websocket):
+    """listener for client"""
     global nickname
     while True:
         message = await websocket.recv()
@@ -18,6 +21,7 @@ async def receiver(websocket):
 
 
 async def write(websocket):
+    """Writer for client"""
     global nickname
     while True:
         message = f'{nickname}: {await ainput()}'
@@ -25,14 +29,11 @@ async def write(websocket):
 
 
 async def main():
+    """Driver code for client module"""
     async with websockets.connect(uri) as websocket:
         task1 = asyncio.create_task(receiver(websocket))
         task2 = asyncio.create_task(write(websocket))
         await task1
         await task2
 
-# loop = asyncio.get_event_loop()
-# loop.run_until_complete(main())
-
-# asyncio.run(receiver())
 asyncio.run(main())
