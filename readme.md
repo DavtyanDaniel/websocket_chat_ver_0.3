@@ -1,4 +1,4 @@
-#Introduction
+# Introduction
 #### This is a chat that allows clients to connect with each other either in group
 #### chat or private with each other.
 When client connects to server hw have to write his nickname,and after it choose with 
